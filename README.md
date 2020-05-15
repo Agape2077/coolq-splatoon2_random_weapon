@@ -1,0 +1,1 @@
+# coolq-splatoon2_random_weapon
