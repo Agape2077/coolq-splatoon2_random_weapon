@@ -1,4 +1,4 @@
-package com.example;
+package me.agape;
 
 import java.util.Random;
 
@@ -23,7 +23,7 @@ import com.sobte.cqp.jcq.event.JcqAppAbstract;
  * 			 {@link JcqAppAbstract#CC CC}({@link com.sobte.cqp.jcq.entity.CQCode 酷Q码操作类}),
  * 			   具体功能可以查看文档
  */
-public class Demo extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
+public class SplatoonRandom extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
 
 	Random random = new Random();
     String[] mode = {"ガチエリア/Splat Zones/占点"
@@ -207,7 +207,7 @@ public class Demo extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
         CQ = new CQDebug();//new CQDebug("应用目录","应用名称") 可以用此构造器初始化应用的目录
         CQ.logInfo("[JCQ] TEST Demo", "测试启动");// 现在就可以用CQ变量来执行任何想要的操作了
         // 要测试主类就先实例化一个主类对象
-        Demo demo = new Demo();
+        SplatoonRandom demo = new SplatoonRandom();
         // 下面对主类进行各方法测试,按照JCQ运行过程，模拟实际情况
         demo.startup();// 程序运行开始 调用应用初始化方法
         demo.enable();// 程序初始化完成后，启用应用，让应用正常工作
@@ -232,7 +232,7 @@ public class Demo extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
      */
     public String appInfo() {
         // 应用AppID,规则见 http://d.cqp.me/Pro/开发/基础信息#appid
-        String AppID = "com.example.demo";// 记住编译后的文件和json也要使用appid做文件名
+        String AppID = "me.agape.SplatoonRandom";// 记住编译后的文件和json也要使用appid做文件名
         /**
          * 本函数【禁止】处理其他任何代码，以免发生异常情况。
          * 如需执行初始化代码请在 startup 事件中执行（Type=1001）。
@@ -312,25 +312,29 @@ public class Demo extends JcqAppAbstract implements ICQVer, IMsg, IRequest {
         // 这里处理消息
     	if (msg.equals("随机武器")|| msg == "随机武器"){
        	 
-            CQ.sendGroupMsg(fromQQ,	"模式：\n"
-           		+ mode[random.nextInt(5)]+"\n"
-            		+"---------------------------------\n"
-           		+ "地图：\n"
-           		+ map[random.nextInt(23)]+"\n"
-           		+ "---------------------------------\n"
-           		+ "Team RED:\n"
-           		+ "主武器/服务器/大招\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ "---------------------------------\n"
-           		+ "Team GREEN:\n"
-           		+ "主武器/服务器/大招\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ weapon[random.nextInt(138)]+"\n"
-           		+ weapon[random.nextInt(138)]+"\n");
+             CQ.sendGroupMsg(fromQQ,	"模式：\n"
+            		+ mode[random.nextInt(5)]+"\n"
+             		+"---------------------------------\n"
+            		+ "地图：\n"
+            		+ map[random.nextInt(23)]+"\n"
+            		+ "---------------------------------\n"
+            		+ "Team RED:\n"
+            		+ "主武器/副武器/大招\n"
+            		+ "---------------------------------\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ "---------------------------------\n"
+            		+ "Team GREEN:\n"
+            		+ "主武器/副武器/大招\n"
+            		+ "---------------------------------\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ weapon[random.nextInt(80)]+"\n"
+            		+ "---------------------------------\n"
+            		+"玩的开心！");
 
        }
     	return MSG_IGNORE;
